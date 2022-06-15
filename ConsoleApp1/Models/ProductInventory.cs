@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Models
 {
-    internal class ProductInventory
+    internal class ProductInventory : BaseModel
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }

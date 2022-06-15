@@ -11,20 +11,51 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Customer customer = new Customer();
-            customer.Name = "Anser";
-            customer.Address = "baker st.";
-            customer.CNIC = 234343;
+            Customer customer1 = new Customer(1,"Anser", "Johar Town", 234343, 22);
+            Console.WriteLine(customer1.ToString());
 
-            //Object[] obj = { "ds", 15, true, 9.8 };
+            Customer customer2 = new Customer(2,"Waseem", "Iqbal Town", 232422, 50);
+            Console.WriteLine(customer2.ToString());
 
-            //for (int i = 0; i < obj.Length; i++)
+            Console.WriteLine(Customer.CustomerCount);
+
+
+            Order order1 = new Order(1, customer1);
+
+            OrderItem item1 = new OrderItem(order1, new Product("Perfume", "New Arrival", 5000, 5.0), 3);
+            OrderItem item2 = new OrderItem(order1, new Product("Kurta", "30% Off", 7000, 30.0), 2);
+            OrderItem item3 = new OrderItem(order1, new Product("Loafer", "Shoes", 4000, 0.0), 1);
+
+            order1.AddOrderItem(item1);
+            order1.AddOrderItem(item2);
+            order1.AddOrderItem(item3);
+
+            customer1.Orders.Add(order1);
+
+            customer1.DisplayOrders();
+
+            //Object[] items = { "ds", 15, true, 9.8 };
+            //foreach (var item in items)
+            //    Console.WriteLine(item);
+
+            //List<List<string>> list = new List<List<string>>();
+            //list.Add(new List<string>());
+            //list.Add(new List<string>());
+            //list.Add(new List<string>());
+
+            //list[0].Add("<Name>");
+            //list[0].Add("<Age>");
+            //list[1].Add("Anser");
+            //list[1].Add("22");
+            //list[2].Add("Faisal");
+            //list[2].Add("23");
+
+            //list.ForEach(row =>
             //{
-            //    Console.WriteLine(obj[i]);
-            //}
+            //    row.ForEach(x => Console.Write(x + '\t'));
+            //    Console.WriteLine('\n');
+            //});
 
-
-            Console.WriteLine(customer.ToString());
             //int num1, num2, num3;
             //try
             //{
