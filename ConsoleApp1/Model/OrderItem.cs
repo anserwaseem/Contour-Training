@@ -13,8 +13,9 @@ namespace ConsoleApp1.Models
         public int Quantity { get; set; }
         public DateTime AddedAt { get; set; }
 
-        public OrderItem(Order order, Product product, int quantity)
+        public OrderItem(int id, Order order, Product product, int quantity)
         {
+            Id = id;
             Order = order;
             Product = product;
             Quantity = quantity;
@@ -23,7 +24,7 @@ namespace ConsoleApp1.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}\n Quantity: {Quantity} Added At: {AddedAt}\n{Product}";
+            return $"OrderItem Id: {Id}\nQuantity: {Quantity}\nAdded At: {AddedAt}\n\n{Product}\n";
         }
     }
 }

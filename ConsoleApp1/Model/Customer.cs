@@ -33,7 +33,7 @@ namespace ConsoleApp1.Models
         public void DisplayOrders()
         {
             foreach (var order in Orders)
-                Console.Write(order.ToString());
+                Console.Write("------------------------------------------------\n"+order.ToString());
         }
     }
 }

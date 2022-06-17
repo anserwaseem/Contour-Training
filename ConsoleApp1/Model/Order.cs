@@ -32,12 +32,13 @@ namespace ConsoleApp1.Models
         }
         public override string ToString()
         {
-            return $"Ïd: {Id}\nTotal: {Total}\nActive: {IsActive}\nDelivered: {IsDelivered}\nCancelled: {IsCancelled}\n";//{OrderItems.ForEach(item => item.ToString())}
+            return $"Order Id: {Id}\nTotal: {Total}\nActive: {IsActive}\nDelivered: {IsDelivered}\nCancelled: {IsCancelled}\n\n{string.Join("", OrderItems)}";
         }
 
         public void AddOrderItem(OrderItem item)
         {
-            Total += item.Product.Price * item.Quantity;
+            int PreDiscountPrice = item.Product.Price * item.Quantity;
+            Total += PreDiscountPrice - (PreDiscountPrice * item.Product.Discount / 100);
             try
             {
                 OrderItems.Add(item);

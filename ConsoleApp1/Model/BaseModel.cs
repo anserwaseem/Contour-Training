@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Models
 {
-    internal class BaseModel
+    internal abstract class BaseModel
     {
         public int Id { get; set; }
     }
